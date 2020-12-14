@@ -1,2 +1,3 @@
-# nanopub-example-collection
-A collection of nanopublication examples from different applications
+# Nanopublication Example Collection
+
+This is a collection of nanopublication examples from different applications.
