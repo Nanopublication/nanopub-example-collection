@@ -1,0 +1,114 @@
+@prefix this: <http://purl.org/np/RAwuR4yIFA2vjaf0Fs_IIYBxZp_5hKp8Rvy4iJWm1Xack> .
+@prefix sub: <http://purl.org/np/RAwuR4yIFA2fjaf0Fs_IIYBxZp_5hKp8Rvy4iJWm1Xask> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.99/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix : <http://rdf.biosemantics.org/vocabularies/gene_disease_nanopub_example#> .
+
+:NanoPub_1_Head {
+    this: np:hasAssertion :NanoPub_1_Head_Assertion ;
+        np:hasProvenance :NanoPub_1_Head_Provenance ;
+        np:hasPublicationInfo :NanoPub_1_Head_PubInfo ;
+        a np:Nanopublication .
+}
+
+:NanoPub_1_Head_Assertion {
+    sub:Person_1 a foaf:Agent ;
+        foaf:name "Yuchen Ang" .
+    
+    sub:ScName_1 dwc:family "Sepsidae" ;
+        dwc:genus "Zuskamira" ;
+        dwc:scientificName "Zuskamira inexpectata" ;
+        dwc:scientificNameAuthorship "Pont, 1987" ;
+        dwc:specificEpithet "inexpectata" ;
+        dwc:taxonRank "species" ;
+        a dwc:Taxon .
+    
+    sub:Identification_1 dwciri:identifiedBy sub:Person_1 ;
+        dwciri:toTaxon sub:ScName_1 ;
+        dwc:dateIdentified "2011" ;
+        a dwc:Identification .
+
+    sub:Occurrence_1 dwciri:recordedBy sub:Person_1 , sub:Person_2 , sub:Person_3 ;
+        dwc:individualCount "20" ;
+        dwc:lifeStage "adult" ;
+        dwc:sex "Males(12) and Females(8)" ;
+        a dwc:Occurrence .
+    
+    sub:Occurrence_2 dwciri:recordedBy sub:Person_1 ;
+        dwc:individualCount "2" ;
+        dwc:lifeStage "adult" ;
+        dwc:sex "Male and Female" ;
+        a dwc:Occurrence .
+    
+    sub:Organism_1 dwc:identificationID sub:Identification_1 , sub:Identification_2 ;
+        dwc:occurrenceID sub:Occurrence_1 , sub:Occurrence_2 ;
+	dwc:locationID sub:Location_1, sub:Location_2;
+	dwc:eventID sub:Event_1, sub:Event_2;
+        a dwc:Organism ;
+        <http://www.w3.org/2000/01/rdf-schema#comment> "a new record for an enigmatic black scavenger fly, Zuskamira inexpectata (Pont, 1987) (Sepsidae) in Finland"@en .
+    
+    sub:Person_2 a foaf:Agent ;
+        foaf:name "Rudolf Meier" .
+    
+    sub:Person_3 a foaf:Agent ;
+        foaf:name "Patrick Rohner" .
+    
+    sub:Person_4 a foaf:Agent ;
+        foaf:name "Éamonn Ó Tuama" .
+    
+    sub:Event_1 dwc:eventDate "7.vii.2014" ;
+        dwc:habitat "Horse-pasture" ;
+        dwc:samplingProtocol "Sweep-netting" ;
+        a dwc:Event .
+    
+    sub:Location_1 dwc:country "Sweden" ;
+        dwc:countryCode "SE" ;
+        dwc:county "Dalarna" ;
+        dwc:decimalLatitude "61.12278" ;
+        dwc:decimalLongitude "14.48222" ;
+        dwc:georeferenceSources "GPS" ;
+        dwc:locality "Orsa" ;
+        dwc:municipality "Orsa" ;
+        dwc:stateProvince "Dalarna" ;
+        dwc:verbatimLocality "Dalarna, Orsa" ;
+        a dcterms:Location .
+    
+    sub:Event_2 dwc:eventDate "20.vii.2011" ;
+        dwc:habitat "Horse-pasture" ;
+        dwc:samplingProtocol "Sweep-netting" ;
+        a dwc:Event .
+    
+    sub:Location_2 dwc:country "Finland" ;
+        dwc:countryCode "FI" ;
+        dwc:county "Uusimaa" ;
+        dwc:decimalLatitude "60.26333" ;
+        dwc:decimalLongitude "24.23444" ;
+        dwc:georeferenceSources "GPS" ;
+        dwc:locality "Lohja" ;
+        dwc:municipality "Lohja" ;
+        dwc:stateProvince "Uusimaa" ;
+        dwc:verbatimLocality "Southern Finland, Uusimaa, sub-Helsinki, Lohja" ;
+        a dcterms:Location .
+    
+    sub:Identification_2 dwciri:identifiedBy sub:Person_1 , sub:Person_2 , sub:Person_3 ;
+        dwciri:toTaxon sub:ScName_1;
+        dwc:dateIdentified "2014" ;
+        a dwc:Identification .
+}
+
+:NanoPub_1_Head_Provenance {
+    :NanoPub_1_Head_Assertion prov:generatedAtTime "2015-06-26"^^xsd:dateTime .
+    
+    :NanoPub_1_Head__Assertion prov:hadPrimarySource "doi: 10.3897/BDJ.3.e4308" .
+}
+
+:NanoPub_1_Head_PubInfo {
+    this: prov:generatedAtTime "2016-10-10T12:30:00Z"^^xsd:dateTime ;
+        prov:wasAttributedTo sub:Person_4 ;
+ 	prov:wasRevisionOf sub:Version_1.
+}

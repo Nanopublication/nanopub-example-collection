@@ -1,0 +1,70 @@
+@prefix this: <http://purl.org/np/RA0006bkysPoHYsZDgl2A-Iq8tOpuWqLSflN7KLeb8jGI> .
+@prefix sub: <http://purl.org/np/RA0006bkysPoHYsZDgl2A-Iq8tOpuWqLSflN7KLeb8jGI#> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pav: <http://swan.mindinformatics.org/ontologies/1.2/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.0/> .
+@prefix nomen: <http://purl.obolibrary.org/obo/NOMEN> .
+@prefix openbiodiv: <http://openbiodiv.net/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
+ 
+sub:Head {
+  this: np:hasAssertion sub:Assertion;
+    np:hasProvenance sub:Provenance;
+    np:hasPublicationInfo sub:Pubinfo;
+    a np:Nanopublication .
+}
+ 
+sub:Assertion {
+  sub:Interaction obo:RO_0000057 sub:Organism_1, sub:Organism_2;
+    a obo:GO_0044419 .
+   
+  sub:Organism_1 obo:RO_0002622 sub:Organism_2;
+    rdfs:label "Lasioglossum mosselinum" ;
+    rdf:type dwc:Organism;
+    dwc:identificationID sub:Identification_1.
+     
+  sub:Identification_1 dwciri:toTaxon sub:ScName_1.
+ 
+  sub:ScName_1 rdf:type nomen:NOMEN_0000036;
+    dwc:genus "Lasioglossum";
+    dwc:specificEpithet "mosselinum".   
+   
+  sub:Organism_2 rdfs:label "Compositae" ;
+    rdf:type dwc:Organism;
+    dwc:identificationID sub:Identification_2.
+     
+  sub:Identification_2 dwciri:toTaxon sub:ScName_2.
+ 
+  sub:ScName_2 rdf:type nomen:NOMEN_0000036;
+    dwc:genus "Compositae".
+ 
+  sub:TaxonomicConcept_2 openbiodiv:scientificName sub:ScName_2;
+                dwc:taxonID "6070956";
+                rdf:type dwc:Taxon.
+}
+ 
+sub:Provenance {
+  sub:Assertion prov:wasDerivedFrom sub:JournalArticle.
+ 
+  sub:JournalArticle a fabio:JournalArticle;
+             dc:title "Capalictus, a new subgenus of Lasioglossum Curtis, 1833 from South Africa, with description of three new species (Hymenoptera, Apoidea, Halictidae).";
+             prism:publicationDate "2012"^^xsd:year;
+             prism:doi "https://doi.org/10.5852/ejt.2012.28".
+             dcterms:bibliographicCitation "Pauly, A., J. Gibbs and M. Kuhlmann. 2012. Capalictus, a new subgenus of Lasioglossum Curtis, 1833 from South Africa, with description of three new species (Hymenoptera, Apoidea, Halictidae). European Journal of Taxonomy 28: 1-28" .
+   
+}
+ 
+sub:Pubinfo {
+  this: dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
+    pav:createdBy <https://doi.org/10.5281/zenodo.1212599>;
+    prov:wasDerivedFrom <https://doi.org/10.5281/zenodo.229519> .
+   
+  <https://doi.org/10.5281/zenodo.229519> dcterms:bibliographicCitation "Eardley C, Coetzer W. 2011. Catalogue of Afrotropical Bees. http://doi.org/10.15468/u9ezbh" .
+}
