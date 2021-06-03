@@ -1,0 +1,65 @@
+@prefix this: <https://data.cooperationdatabank.org/coda/nanopub/nano4#RAciZfFqIllpVqywfFqB7GVK4hAyJsLphyCCQGLViL73A> .
+@prefix sub: <https://data.cooperationdatabank.org/coda/nanopub/nano4#RAciZfFqIllpVqywfFqB7GVK4hAyJsLphyCCQGLViL73A.> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cp: <https://data.cooperationdatabank.org/vocab/prop/> .
+@prefix cr: <https://data.cooperationdatabank.org/id/> .
+
+sub:Head {
+  this: np:hasAssertion sub:assertion;
+    np:hasProvenance sub:provenance;
+    np:hasPublicationInfo sub:pubinfo;
+    a np:Nanopublication .
+}
+
+sub:assertion {
+  cr:ENG00658_1.1.1.2.d cp:dependentVariable <https://data.cooperationdatabank.org/id/dependentvariable/cooperation>;
+    cp:eSEstimate -6.27488E-2;
+    cp:effectSizeSampleSize 1.03E2;
+    cp:effectSizeVariance 5.02126E-2;
+    cp:has-stderr 2.20794E-2;
+    cp:independentVariable "https://data.cooperationdatabank.org/vocab/prop/cognitiveLoadTreatment" .
+}
+
+sub:provenance {
+  sub:assertion dct:creator "Roel van Veldhuizen", "Thomas de Haan";
+    dct:date "2015-09-01:00"^^xsd:gYearMonth;
+    prov:wasDerivedFrom cr:ENG00658_1;
+    cp:doi <http://dx.doi.org/10.1016/j.jebo.2015.06.002>;
+    cp:maleProportion 6.5E-1;
+    cp:meanAge 2.117E1;
+    cp:numberOfObservations "104"^^xsd:int;
+    cp:overallN "104"^^xsd:int;
+    cp:overallProportionCooperation 3.78621E-1;
+    cp:publicationStatus <https://data.cooperationdatabank.org/id/publicationstatus/1>;
+    cp:studyDilemmaType <https://data.cooperationdatabank.org/id/studydilemmatype/1>;
+    cp:studyExperimentalSetting <https://data.cooperationdatabank.org/id/studyexperimentalsetting/2>;
+    cp:studyGameIncentive <https://data.cooperationdatabank.org/id/studygameincentive/1>;
+    cp:studyGroupSize "2"^^xsd:int;
+    cp:studyKindex 2.5E-1, 3.33E-1;
+    cp:studyMatchingProtocol <https://data.cooperationdatabank.org/id/studymatchingprotocol/2>;
+    cp:studyNumberOfChoices "2"^^xsd:int;
+    cp:studyOneShot <https://data.cooperationdatabank.org/id/studyoneshot/0>;
+    cp:yearOfDataCollection "2010"^^xsd:int .
+  
+  <https://data.cooperationdatabank.org/id/publicationstatus/1> rdfs:label "Published Article" .
+  <https://data.cooperationdatabank.org/id/studydilemmatype/1> rdfs:label "Prisoner's Dilemma Game" .
+  <https://data.cooperationdatabank.org/id/studyexperimentalsetting/2> rdfs:label "Lab" .
+  <https://data.cooperationdatabank.org/id/studygameincentive/1> rdfs:label "Monetary" .
+  <https://data.cooperationdatabank.org/id/studymatchingprotocol/2> rdfs:label "Partner" .
+  <https://data.cooperationdatabank.org/id/studyoneshot/0> rdfs:label "Repeated" .
+}
+
+sub:pubinfo {
+  this: pav:createdBy <http://orcid.org/0000-0002-1144-6265>;
+    pav:createdOn "2020-12-16T23:40:36.665Z"^^xsd:dateTime;
+    pav:createdWith <https://github.com/ImranAsif48/CodaToNanopub>;
+    pav:importedBy <http://orcid.org/0000-0002-1144-6265>;
+    pav:importedFrom <https://data.cooperationdatabank.org/coda/databank/download.trig.gz>;
+    pav:importedOn "2020-12-01T00:00:00.000Z"^^xsd:dateTime;
+    pav:license <https://creativecommons.org/licenses/by-sa/3.0/> .
+}
